@@ -1,32 +1,42 @@
 name: Publish to GH Pages
+
+# Permiso para push
+permissions:
+  contents: write
+
 on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Checkout destination
-        uses: actions/checkout@v3
+      - name: Checkout destination (gh-pages)
         if: github.ref == 'refs/heads/main'
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
           path: built-site
+          fetch-depth: 0
 
       - name: Setup Hugo
         run: |
-          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.96.0/hugo_extended_0.96.0_Linux-64bit.tar.gz'
+          curl -L -o /tmp/hugo.tar.gz \
+            'https://github.com/gohugoio/hugo/releases/download/v0.96.0/hugo_extended_0.96.0_Linux-64bit.tar.gz'
           tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo
-      - name: Build
+
+      - name: Build site
         run: ${RUNNER_TEMP}/hugo
 
-      - name: Deploy
+      - name: Commit & Push
         if: github.ref == 'refs/heads/main'
         run: |
           cp -R public/* ${GITHUB_WORKSPACE}/built-site/
@@ -34,5 +44,5 @@ jobs:
           git add .
           git config user.name 'VidalTinoco'
           git config user.email 'vidalhum0@gmail.com'
-          git commit -m 'Updated site'
+          git commit -m 'Updated site' || echo "No changes to commit"
           git push
