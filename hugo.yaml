@@ -31,7 +31,7 @@ params:
     subtitle: "I’m a **Data Scientist** with over three years of experience building end-to-end analytical solutions, from **predictive models, NLP systems to computer-vision pipelines and interactive dashboards**. I specialize in translating complex technical results into clear, actionable insights for non-technical stakeholders using R, Python, and SQL. A proud Chivahermano 🐐, I bring the same teamwork and passion I have for C.D. Guadalajara 🔴⚪ to every project, collaborating closely across disciplines to drive real impact."
     imageUrl: "images/profile_pic.jpeg" # optional
     imageTitle: "profilepic" # optional
-    imageWidth: 140 # custom size
+    imageWidth: 150 # custom size
     imageHeight: 130 # custom size
     #buttons:
     #  - name: Github
