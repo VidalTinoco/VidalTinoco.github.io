@@ -1,5 +1,7 @@
-baseURL: "https://VidalTinoco.github.io/VidalWebsite/"
+baseURL: "https://VidalTinoco.github.io/"
 languageCode: en-us
+defaultContentLanguage: "en-us"
+defaultContentLanguageInSubdir: false
 title: Vidal Mendoza-Tinoco
 theme: ["PaperMod"]
 
