@@ -6,9 +6,7 @@ summary: "An R package designed to help you track the latest news trends with se
 tags: ["R", "Sentiment Analysis", "Data Visualization", "APIs", "NLP"]
 ---
 
-# elmiguelon - the News Reporter R Package
-
-<img src="elmiguelon.jpg" style="position:absolute; top:0px; right:0px; width:150px;"/>
+\<img src="elmiguelon.jpg" style="max-width: 300px; height: auto; display: block; margin-left: auto; margin-right: auto;"/\>
 
 ## Introduction
 
