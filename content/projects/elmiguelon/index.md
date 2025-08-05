@@ -62,7 +62,7 @@ save_api_keys()
 ### `get_news_everything()`
 This function retrieves news articles from the NewsAPI "everything" endpoint using a specified keyword, date range, sort criteria, and language. It requires a valid API key stored in your NEWS_API_KEY environment variable and returns a data frame containing the title, content, URL, source name, and publication date of each article. For instance, you can query for "climate change" articles or adjust parameters like date range and sort order to fine-tune your search. Usage examples include:
 
-```{r}
+```r
 # Retrieve "climate change" articles in English
 climate_news <- get_news_everything(keyword = "climate")
 
@@ -75,7 +75,7 @@ spanish_news <- get_news_everything(keyword = "elecciones", language = "es", sor
 
 This function retrieves live top headlines from the NewsAPI "top-headlines" endpoint using your NEWS_API_KEY environment variable. It allows you to fetch headlines from all categories by default or filter by a specific category (e.g., "technology", "business") when provided. The function returns a data frame containing the title, content, URL, and publication date of each article. For example:
 
-```{r}
+```r
 # Retrieve headlines from all categories
 headlines <- get_top_headlines()
 
@@ -98,7 +98,7 @@ Prompt 1 : `Enter the article number to translate: ` - choose one of the 20 disp
 Prompt 2 : `Enter the preferred language: ` - type the language code or name you want the article translated into.
 
 
-```{r}
+```r
 # Retrieve articles about "Apple" from March 1 to March 8, 2025, then select one to translate to Korean:
 search_and_translate_news(
   search_method = "everything",
@@ -138,7 +138,7 @@ Since NewsAPI provides only restricted article content, the function performs we
 `Note: The function retrieves full article content via web scraping. Please wait for the analysis to complete!`. 
 For Similarity Analysis, which requires multiple API calls when using OpenAI's API, the analysis is limited to the top 25 articles to optimize performance.
 
-```{r}
+```r
 # Get news articles
 news <- get_news_everything(
   keyword = "Apple",
